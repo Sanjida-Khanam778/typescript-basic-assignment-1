@@ -111,9 +111,17 @@ enum Day {
     Sunday
 }
 
-// function getDayType(day: Day): string {
+function getDayType(day: Day): string {
+    switch (day) {
+        case Day.Saturday:
+        case Day.Sunday:
+            return "Weekend";
+        default:
+            return "Weekday";
+    }
+}
 
-// }
-
-// getDayType(Day.Monday);   // Output: "Weekday"
-// getDayType(Day.Sunday);   // Output: "Weekend"
+console.log(getDayType(Day.Monday));   // Output: "Weekday"
+console.log(getDayType(Day.Sunday));   // Output: "Weekend"
+console.log(getDayType(Day.Saturday));   // Output: "Weekend"
+console.log(getDayType(Day.Friday));   // Output: "Weekend"
