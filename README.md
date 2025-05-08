@@ -142,7 +142,7 @@ const admin: Admin = {
 
 ```
 
-# 2. The use of the keyof keyword in TypeScript
+# The use of the keyof keyword in TypeScript
 The keyof keyword is a powerful tool in TypeScript that returns a union of property names from a type or interface. It’s commonly used in generic programming and utility types.
 Some reason to use keyof keyword:
 
