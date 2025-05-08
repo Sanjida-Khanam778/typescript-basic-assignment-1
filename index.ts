@@ -5,36 +5,15 @@ function formatString(input: string, toUpper?: boolean): string {
     return input.toUpperCase();
 }
 
-// console.log(formatString("Hello"));         
-// console.log(formatString("Hello", true));   
-// console.log(formatString("Hello", false));  
-
-
-
 function filterByRating(items: { title: string; rating: number }[]): { title: string; rating: number }[] {
     const filtered = items.filter(item => item.rating >= 4)
-    // const result = filtered.map(book=>({...book, rating: parseFloat(book.rating.toFixed(1))}))
     return filtered;
 }
-
-const books = [
-    { title: "Book A", rating: 4.5 },
-    { title: "Book B", rating: 3.2 },
-    { title: "Book C", rating: 5.0 },
-    { title: "Book C", rating: 4.0 },
-    { title: "Book C", rating: 5.0 },
-];
-
-//   console.log(filterByRating(books)) 
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
     const result = arrays.reduce((acc, red) => [...acc, ...red], [])
     return result
 }
-
-//   console.log(concatenateArrays(["a", "b"], ["c"]));
-//   console.log(concatenateArrays([1, 2], [3, 4], [5]));
-
 
 class Vehicle {
     private make: string;
@@ -62,11 +41,6 @@ class Car extends Vehicle {
     }
 }
 
-const myCar = new Car("Toyota", 2020, "Corolla");
-myCar.getInfo();   // Output: "Make: Toyota, Year: 2020"
-myCar.getModel();  // Output: "Model: Corolla"
-
-
 function processValue(value: string | number): number {
     if (typeof value === "string") {
         return value.length
@@ -75,9 +49,6 @@ function processValue(value: string | number): number {
         return value * 2;
     }
 }
-
-// console.log(processValue("hello"));
-// console.log(processValue(10));
 
 interface Product {
     name: string;
@@ -91,15 +62,6 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
     const highest = products.reduce((acc, red) => acc.price > red.price ? acc : red)
     return highest
 }
-
-const products = [
-    { name: "Pen", price: 10 },
-    { name: "Notebook", price: 25 },
-    { name: "Bag", price: 50 }
-];
-
-console.log(getMostExpensiveProduct(products));
-// Output: { name: "Bag", price: 50 }
 
 enum Day {
     Monday,
@@ -121,12 +83,6 @@ function getDayType(day: Day): string {
     }
 }
 
-console.log(getDayType(Day.Monday));   // Output: "Weekday"
-console.log(getDayType(Day.Sunday));   // Output: "Weekend"
-console.log(getDayType(Day.Saturday));   // Output: "Weekend"
-console.log(getDayType(Day.Friday));   // Output: "Weekend"
-
-
 async function squareAsync(n: number): Promise<number> {
     if (n < 0) {
         return Promise.reject("Error: Negative number not allowed")
@@ -139,6 +95,3 @@ async function squareAsync(n: number): Promise<number> {
         });
     }
 }
-
-squareAsync(4).then(console.log);        // Output after 1s: 16
-squareAsync(-3).catch(console.error);    // Output: Error: Negative number not allowed
